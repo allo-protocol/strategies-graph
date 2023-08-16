@@ -2,6 +2,7 @@
   "name": "allo-strategies",
   "license": "UNLICENSED",
   "scripts": {
+    "prepare:goerli": "mustache config/goerli.json subgraph.template.yaml > subgraph.yaml",
     "codegen": "graph codegen",
     "build": "graph build",
     "deploy": "graph deploy --node https://api.thegraph.com/deploy/ allo-protocol/allo-strategies",
@@ -12,7 +13,10 @@
   },
   "dependencies": {
     "@graphprotocol/graph-cli": "0.53.0",
-    "@graphprotocol/graph-ts": "0.30.0"
+    "@graphprotocol/graph-ts": "0.30.0",
+    "mustache": "^4.2.0"
   },
-  "devDependencies": { "matchstick-as": "0.5.0" }
+  "devDependencies": {
+    "matchstick-as": "0.5.0"
+  }
 }

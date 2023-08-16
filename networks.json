@@ -1,8 +1,0 @@
-{
-  "goerli": {
-    "DonationVotingMerkleDistribution": {
-      "address": "0xC88612a4541A28c221F3d03b6Cf326dCFC557C4E",
-      "startBlock": 9476300
-    }
-  }
-}

@@ -1,0 +1,57 @@
+specVersion: 0.0.5
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: DonationVotingMerkleDistribution
+    network: goerli
+    source:
+      address: "0xC88612a4541A28c221F3d03b6Cf326dCFC557C4E"
+      abi: DonationVotingMerkleDistribution
+      startBlock: 9476300
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Allocated
+        - Appealed
+        - BatchPayoutSuccessful
+        - Claimed
+        - Distributed
+        - DistributionUpdated
+        - FundsDistributed
+        - Initialized
+        - PoolActive
+        - RecipientStatusUpdated
+        - Registered
+        - TimestampsUpdated
+      abis:
+        - name: DonationVotingMerkleDistribution
+          file: DonationVotingMerkleDistribution/abis/DonationVotingMerkleDistribution.json
+      eventHandlers:
+        - event: Allocated(indexed address,uint256,address,address)
+          handler: handleAllocated
+        - event: Appealed(indexed address,bytes,address)
+          handler: handleAppealed
+        - event: BatchPayoutSuccessful(indexed address)
+          handler: handleBatchPayoutSuccessful
+        - event: Claimed(indexed address,address,uint256,address)
+          handler: handleClaimed
+        - event: Distributed(indexed address,address,uint256,address)
+          handler: handleDistributed
+        - event: DistributionUpdated(bytes32,(uint256,string))
+          handler: handleDistributionUpdated
+        - event: FundsDistributed(uint256,address,indexed address,indexed address)
+          handler: handleFundsDistributed
+        - event: Initialized(address,bytes32,uint256,bytes)
+          handler: handleInitialized
+        - event: PoolActive(bool)
+          handler: handlePoolActive
+        - event: RecipientStatusUpdated(indexed uint256,uint256,address)
+          handler: handleRecipientStatusUpdated
+        - event: Registered(indexed address,bytes,address)
+          handler: handleRegistered
+        - event: TimestampsUpdated(uint256,uint256,uint256,uint256,address)
+          handler: handleTimestampsUpdated
+      file: DonationVotingMerkleDistribution/DonationVotingMerkleDistribution.wasm
