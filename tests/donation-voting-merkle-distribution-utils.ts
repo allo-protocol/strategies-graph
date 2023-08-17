@@ -1,5 +1,5 @@
-import { newMockEvent } from "matchstick-as"
-import { ethereum, Address, BigInt, Bytes } from "@graphprotocol/graph-ts"
+import { Address, BigInt, Bytes, ethereum } from "@graphprotocol/graph-ts";
+import { newMockEvent } from "matchstick-as";
 import {
   Allocated,
   Appealed,
@@ -12,8 +12,8 @@ import {
   PoolActive,
   RecipientStatusUpdated,
   Registered,
-  TimestampsUpdated
-} from "../generated/DonationVotingMerkleDistribution/DonationVotingMerkleDistribution"
+  TimestampsUpdated,
+} from "../generated/DonationVotingMerkleDistribution/DonationVotingMerkleDistribution";
 
 export function createAllocatedEvent(
   recipientId: Address,
@@ -21,27 +21,27 @@ export function createAllocatedEvent(
   token: Address,
   sender: Address
 ): Allocated {
-  let allocatedEvent = changetype<Allocated>(newMockEvent())
+  let allocatedEvent = changetype<Allocated>(newMockEvent());
 
-  allocatedEvent.parameters = new Array()
+  allocatedEvent.parameters = new Array();
 
   allocatedEvent.parameters.push(
     new ethereum.EventParam(
       "recipientId",
       ethereum.Value.fromAddress(recipientId)
     )
-  )
+  );
   allocatedEvent.parameters.push(
     new ethereum.EventParam("amount", ethereum.Value.fromUnsignedBigInt(amount))
-  )
+  );
   allocatedEvent.parameters.push(
     new ethereum.EventParam("token", ethereum.Value.fromAddress(token))
-  )
+  );
   allocatedEvent.parameters.push(
     new ethereum.EventParam("sender", ethereum.Value.fromAddress(sender))
-  )
+  );
 
-  return allocatedEvent
+  return allocatedEvent;
 }
 
 export function createAppealedEvent(
@@ -49,24 +49,24 @@ export function createAppealedEvent(
   data: Bytes,
   sender: Address
 ): Appealed {
-  let appealedEvent = changetype<Appealed>(newMockEvent())
+  let appealedEvent = changetype<Appealed>(newMockEvent());
 
-  appealedEvent.parameters = new Array()
+  appealedEvent.parameters = new Array();
 
   appealedEvent.parameters.push(
     new ethereum.EventParam(
       "recipientId",
       ethereum.Value.fromAddress(recipientId)
     )
-  )
+  );
   appealedEvent.parameters.push(
     new ethereum.EventParam("data", ethereum.Value.fromBytes(data))
-  )
+  );
   appealedEvent.parameters.push(
     new ethereum.EventParam("sender", ethereum.Value.fromAddress(sender))
-  )
+  );
 
-  return appealedEvent
+  return appealedEvent;
 }
 
 export function createBatchPayoutSuccessfulEvent(
@@ -74,15 +74,15 @@ export function createBatchPayoutSuccessfulEvent(
 ): BatchPayoutSuccessful {
   let batchPayoutSuccessfulEvent = changetype<BatchPayoutSuccessful>(
     newMockEvent()
-  )
+  );
 
-  batchPayoutSuccessfulEvent.parameters = new Array()
+  batchPayoutSuccessfulEvent.parameters = new Array();
 
   batchPayoutSuccessfulEvent.parameters.push(
     new ethereum.EventParam("sender", ethereum.Value.fromAddress(sender))
-  )
+  );
 
-  return batchPayoutSuccessfulEvent
+  return batchPayoutSuccessfulEvent;
 }
 
 export function createClaimedEvent(
@@ -91,30 +91,30 @@ export function createClaimedEvent(
   amount: BigInt,
   token: Address
 ): Claimed {
-  let claimedEvent = changetype<Claimed>(newMockEvent())
+  let claimedEvent = changetype<Claimed>(newMockEvent());
 
-  claimedEvent.parameters = new Array()
+  claimedEvent.parameters = new Array();
 
   claimedEvent.parameters.push(
     new ethereum.EventParam(
       "recipientId",
       ethereum.Value.fromAddress(recipientId)
     )
-  )
+  );
   claimedEvent.parameters.push(
     new ethereum.EventParam(
       "recipientAddress",
       ethereum.Value.fromAddress(recipientAddress)
     )
-  )
+  );
   claimedEvent.parameters.push(
     new ethereum.EventParam("amount", ethereum.Value.fromUnsignedBigInt(amount))
-  )
+  );
   claimedEvent.parameters.push(
     new ethereum.EventParam("token", ethereum.Value.fromAddress(token))
-  )
+  );
 
-  return claimedEvent
+  return claimedEvent;
 }
 
 export function createDistributedEvent(
@@ -123,51 +123,53 @@ export function createDistributedEvent(
   amount: BigInt,
   sender: Address
 ): Distributed {
-  let distributedEvent = changetype<Distributed>(newMockEvent())
+  let distributedEvent = changetype<Distributed>(newMockEvent());
 
-  distributedEvent.parameters = new Array()
+  distributedEvent.parameters = new Array();
 
   distributedEvent.parameters.push(
     new ethereum.EventParam(
       "recipientId",
       ethereum.Value.fromAddress(recipientId)
     )
-  )
+  );
   distributedEvent.parameters.push(
     new ethereum.EventParam(
       "recipientAddress",
       ethereum.Value.fromAddress(recipientAddress)
     )
-  )
+  );
   distributedEvent.parameters.push(
     new ethereum.EventParam("amount", ethereum.Value.fromUnsignedBigInt(amount))
-  )
+  );
   distributedEvent.parameters.push(
     new ethereum.EventParam("sender", ethereum.Value.fromAddress(sender))
-  )
+  );
 
-  return distributedEvent
+  return distributedEvent;
 }
 
 export function createDistributionUpdatedEvent(
   merkleRoot: Bytes,
   metadata: ethereum.Tuple
 ): DistributionUpdated {
-  let distributionUpdatedEvent = changetype<DistributionUpdated>(newMockEvent())
+  let distributionUpdatedEvent = changetype<DistributionUpdated>(
+    newMockEvent()
+  );
 
-  distributionUpdatedEvent.parameters = new Array()
+  distributionUpdatedEvent.parameters = new Array();
 
   distributionUpdatedEvent.parameters.push(
     new ethereum.EventParam(
       "merkleRoot",
       ethereum.Value.fromFixedBytes(merkleRoot)
     )
-  )
+  );
   distributionUpdatedEvent.parameters.push(
     new ethereum.EventParam("metadata", ethereum.Value.fromTuple(metadata))
-  )
+  );
 
-  return distributionUpdatedEvent
+  return distributionUpdatedEvent;
 }
 
 export function createFundsDistributedEvent(
@@ -176,27 +178,27 @@ export function createFundsDistributedEvent(
   token: Address,
   recipientId: Address
 ): FundsDistributed {
-  let fundsDistributedEvent = changetype<FundsDistributed>(newMockEvent())
+  let fundsDistributedEvent = changetype<FundsDistributed>(newMockEvent());
 
-  fundsDistributedEvent.parameters = new Array()
+  fundsDistributedEvent.parameters = new Array();
 
   fundsDistributedEvent.parameters.push(
     new ethereum.EventParam("amount", ethereum.Value.fromUnsignedBigInt(amount))
-  )
+  );
   fundsDistributedEvent.parameters.push(
     new ethereum.EventParam("grantee", ethereum.Value.fromAddress(grantee))
-  )
+  );
   fundsDistributedEvent.parameters.push(
     new ethereum.EventParam("token", ethereum.Value.fromAddress(token))
-  )
+  );
   fundsDistributedEvent.parameters.push(
     new ethereum.EventParam(
       "recipientId",
       ethereum.Value.fromAddress(recipientId)
     )
-  )
+  );
 
-  return fundsDistributedEvent
+  return fundsDistributedEvent;
 }
 
 export function createInitializedEvent(
@@ -205,39 +207,39 @@ export function createInitializedEvent(
   poolId: BigInt,
   data: Bytes
 ): Initialized {
-  let initializedEvent = changetype<Initialized>(newMockEvent())
+  let initializedEvent = changetype<Initialized>(newMockEvent());
 
-  initializedEvent.parameters = new Array()
+  initializedEvent.parameters = new Array();
 
   initializedEvent.parameters.push(
     new ethereum.EventParam("allo", ethereum.Value.fromAddress(allo))
-  )
+  );
   initializedEvent.parameters.push(
     new ethereum.EventParam(
       "profileId",
       ethereum.Value.fromFixedBytes(profileId)
     )
-  )
+  );
   initializedEvent.parameters.push(
     new ethereum.EventParam("poolId", ethereum.Value.fromUnsignedBigInt(poolId))
-  )
+  );
   initializedEvent.parameters.push(
     new ethereum.EventParam("data", ethereum.Value.fromBytes(data))
-  )
+  );
 
-  return initializedEvent
+  return initializedEvent;
 }
 
 export function createPoolActiveEvent(active: boolean): PoolActive {
-  let poolActiveEvent = changetype<PoolActive>(newMockEvent())
+  let poolActiveEvent = changetype<PoolActive>(newMockEvent());
 
-  poolActiveEvent.parameters = new Array()
+  poolActiveEvent.parameters = new Array();
 
   poolActiveEvent.parameters.push(
     new ethereum.EventParam("active", ethereum.Value.fromBoolean(active))
-  )
+  );
 
-  return poolActiveEvent
+  return poolActiveEvent;
 }
 
 export function createRecipientStatusUpdatedEvent(
@@ -247,27 +249,27 @@ export function createRecipientStatusUpdatedEvent(
 ): RecipientStatusUpdated {
   let recipientStatusUpdatedEvent = changetype<RecipientStatusUpdated>(
     newMockEvent()
-  )
+  );
 
-  recipientStatusUpdatedEvent.parameters = new Array()
+  recipientStatusUpdatedEvent.parameters = new Array();
 
   recipientStatusUpdatedEvent.parameters.push(
     new ethereum.EventParam(
       "rowIndex",
       ethereum.Value.fromUnsignedBigInt(rowIndex)
     )
-  )
+  );
   recipientStatusUpdatedEvent.parameters.push(
     new ethereum.EventParam(
       "fullRow",
       ethereum.Value.fromUnsignedBigInt(fullRow)
     )
-  )
+  );
   recipientStatusUpdatedEvent.parameters.push(
     new ethereum.EventParam("sender", ethereum.Value.fromAddress(sender))
-  )
+  );
 
-  return recipientStatusUpdatedEvent
+  return recipientStatusUpdatedEvent;
 }
 
 export function createRegisteredEvent(
@@ -275,24 +277,24 @@ export function createRegisteredEvent(
   data: Bytes,
   sender: Address
 ): Registered {
-  let registeredEvent = changetype<Registered>(newMockEvent())
+  let registeredEvent = changetype<Registered>(newMockEvent());
 
-  registeredEvent.parameters = new Array()
+  registeredEvent.parameters = new Array();
 
   registeredEvent.parameters.push(
     new ethereum.EventParam(
       "recipientId",
       ethereum.Value.fromAddress(recipientId)
     )
-  )
+  );
   registeredEvent.parameters.push(
     new ethereum.EventParam("data", ethereum.Value.fromBytes(data))
-  )
+  );
   registeredEvent.parameters.push(
     new ethereum.EventParam("sender", ethereum.Value.fromAddress(sender))
-  )
+  );
 
-  return registeredEvent
+  return registeredEvent;
 }
 
 export function createTimestampsUpdatedEvent(
@@ -302,37 +304,37 @@ export function createTimestampsUpdatedEvent(
   allocationEndTime: BigInt,
   sender: Address
 ): TimestampsUpdated {
-  let timestampsUpdatedEvent = changetype<TimestampsUpdated>(newMockEvent())
+  let timestampsUpdatedEvent = changetype<TimestampsUpdated>(newMockEvent());
 
-  timestampsUpdatedEvent.parameters = new Array()
+  timestampsUpdatedEvent.parameters = new Array();
 
   timestampsUpdatedEvent.parameters.push(
     new ethereum.EventParam(
       "registrationStartTime",
       ethereum.Value.fromUnsignedBigInt(registrationStartTime)
     )
-  )
+  );
   timestampsUpdatedEvent.parameters.push(
     new ethereum.EventParam(
       "registrationEndTime",
       ethereum.Value.fromUnsignedBigInt(registrationEndTime)
     )
-  )
+  );
   timestampsUpdatedEvent.parameters.push(
     new ethereum.EventParam(
       "allocationStartTime",
       ethereum.Value.fromUnsignedBigInt(allocationStartTime)
     )
-  )
+  );
   timestampsUpdatedEvent.parameters.push(
     new ethereum.EventParam(
       "allocationEndTime",
       ethereum.Value.fromUnsignedBigInt(allocationEndTime)
     )
-  )
+  );
   timestampsUpdatedEvent.parameters.push(
     new ethereum.EventParam("sender", ethereum.Value.fromAddress(sender))
-  )
+  );
 
-  return timestampsUpdatedEvent
+  return timestampsUpdatedEvent;
 }

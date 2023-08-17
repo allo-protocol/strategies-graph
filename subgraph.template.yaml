@@ -4,11 +4,11 @@ schema:
 dataSources:
   - kind: ethereum
     name: DonationVotingMerkleDistribution
-    network: {{network}}
+    network: {{ network }}
     source:
-      address: "0xC88612a4541A28c221F3d03b6Cf326dCFC557C4E"
+      address: '{{ donationVotingMerkleDistrobutionAddress }}'
       abi: DonationVotingMerkleDistribution
-      startBlock: {{startBlock}}
+      startBlock: {{ startBlock }}
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7

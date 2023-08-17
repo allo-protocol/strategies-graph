@@ -1,0 +1,6 @@
+{
+    "network": "pgn-testnet",
+    "startBlock": 1144800,
+    "alloAddress": "",
+    "donationVotingMerkleDistrobutionAddress": ""
+  }

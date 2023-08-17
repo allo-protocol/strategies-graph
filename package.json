@@ -3,6 +3,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "prepare:goerli": "mustache config/goerli.json subgraph.template.yaml > subgraph.yaml",
+    "prepare:pgn-testnet": "mustache config/pgn-testnet.json subgraph.template.yaml > subgraph.yaml",
     "codegen": "graph codegen",
     "build": "graph build",
     "deploy": "graph deploy --node https://api.thegraph.com/deploy/ allo-protocol/allo-strategies",
